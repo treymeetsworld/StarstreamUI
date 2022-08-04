@@ -19,13 +19,8 @@ function MoviesGetLatest(props: IMovieProps) {
             setMovies(data.results as unknown as Movie[])
         ));
 
-        return () => {
-            console.log("ribbit pop");
-        }
-
     }, []);
     
-    console.log(Movies);
 
     return (
         <>

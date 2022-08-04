@@ -1,4 +1,3 @@
-import { Component } from "react";
 
 export interface IFAQs {
   id: number | undefined | " ";
@@ -28,17 +27,4 @@ export interface IMoreFAQs {
   faq_id: number | undefined;
   faq_question: string | undefined;
   faq_answer: string | undefined;
-}
-export class Display_Image extends Component {
-  url: string = "https://picsum.photos/1500/150";
-
-  render() {
-    return (
-      <div>
-        <h1>
-          <img src={this.url} alt="" />
-        </h1>
-      </div>
-    );
-  }
 }

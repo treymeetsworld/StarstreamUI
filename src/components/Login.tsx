@@ -31,7 +31,7 @@ function Login(props: ILoginProps) {
         }
 
         try {
-            let resp = await fetch('http://Starsteamapi-env-2.eba-sjpuj72h.us-east-1.elasticbeanstalk.com/MovieApp/auth'
+            let resp = await fetch('http://localhost:8080/auth'
             , {
                 method: 'POST',
                 headers: {
@@ -50,28 +50,12 @@ function Login(props: ILoginProps) {
         }  
     }
 
-    console.log(props.currentUser)
+
 
     return (
         props.currentUser ? <Navigate to="/"/> :
         <div className="login">
-            <div className="login_background">
-                <img 
-                className="login_logo"
-                src="https://images.indianexpress.com/2021/04/pixabay_shooting-star_1200.jpg" 
-                alt="" 
-             />
-
-            <Link to={"/register"}> 
-            
-            <button
-         className="login_button">
-       Register
-        </button>
-           
-            </Link>
-
-        
+            <div className="login_background">        
         <div className="login_gradient" />
         
         </div>

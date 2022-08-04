@@ -1,6 +1,5 @@
-import { FAQs, Display_Image, IMoreFAQs } from "../models/FAQs";
+import { FAQs, IMoreFAQs } from "../models/FAQs";
 import { useEffect, useState } from "react";
-import render from "react";
 import { LoggedInUserType } from "../models/logged-in-user";
 import { Navigate } from "react-router-dom";
 
@@ -49,7 +48,6 @@ function Display_FAQs(props: IDisplayProps) {
       </h1>
       <h1>
         <span>
-          <Display_Image />
         </span>
       </h1>
       <br></br>

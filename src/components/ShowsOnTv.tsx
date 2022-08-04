@@ -9,8 +9,7 @@ function ShowsOnTv(props: {}) {
         fetch(`https://api.themoviedb.org/3/tv/on_the_air?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&page=1`, {
             method: 'GET'
         }).then(resp => resp.json()).then(data => (
-           // setShows(data.results as unknown as TvData[])
-           console.log(data.results)
+           setShows(data.results as unknown as TvData[])
             ));
             
     }, []);

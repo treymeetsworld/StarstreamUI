@@ -18,11 +18,6 @@ function MoviesGetPopular(props: IMovieProps) {
         }).then(resp => resp.json()).then(data => (
             setMovies(data.results as unknown as Movie[])
         ));
-
-        return () => {
-            console.log("ribbit pop");
-        }
-
     }, []);
 
     return (

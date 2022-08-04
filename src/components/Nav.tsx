@@ -14,7 +14,7 @@ import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { Link } from 'react-router-dom';
 
-const pages = ['Login', 'Settings', 'Watchlist', 'FAQs', 'Shows','Movies'];
+const pages = ['Login', 'Settings', 'Watchlist', 'FAQs', 'Shows', 'Movies'];
 const settings = ['Profile', 'Settings', 'Login', 'Shows', 'Movies'];
 
 const ResponsiveAppBar = () => {
@@ -37,8 +37,8 @@ const ResponsiveAppBar = () => {
   };
 
   return (
-   
-   <AppBar position="static">
+
+    <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -57,7 +57,7 @@ const ResponsiveAppBar = () => {
               textDecoration: 'none',
             }}
           >
-           Starstream
+            Starstream
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -91,26 +91,26 @@ const ResponsiveAppBar = () => {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">
-                      <Link style={{textDecoration: "none", color: "white"}} to ={`/${page}`}>
+                    <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
                       {page}
-                  </Link>
-                  <li> 
-                      <Link to='/'>Homepage</Link>
-                  </li>
-                  <li>
-                      <Link to='/register'>Register</Link>
-                  </li>
-                  <li>
-                      <Link to='/login'>Login</Link>
-                  </li>
-                  <li>
-                      <Link to='/profile'>Profile</Link>
-                  </li>
-                  <li>
-                      <Link to='/settings'>Settings</Link>
-                  </li>
-                  </Typography>
+                    </Link>
+                    <ul>
+                      <li>
+                        <Link to='/'>Homepage</Link>
+                      </li>
+                      <li>
+                        <Link to='/register'>Register</Link>
+                      </li>
+                      <li>
+                        <Link to='/login'>Login</Link>
+                      </li>
+                      <li>
+                        <Link to='/profile'>Profile</Link>
+                      </li>
+                      <li>
+                        <Link to='/settings'>Settings</Link>
+                      </li>
+                    </ul>
                 </MenuItem>
               ))}
             </Menu>
@@ -141,9 +141,9 @@ const ResponsiveAppBar = () => {
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
-                     <Link style={{textDecoration: "none", color: "white"}} to ={`/${page}`}>
-                      {page}
-                  </Link>
+                <Link style={{ textDecoration: "none", color: "white" }} to={`/${page}`}>
+                  {page}
+                </Link>
               </Button>
             ))}
           </Box>

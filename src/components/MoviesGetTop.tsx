@@ -18,11 +18,6 @@ function MoviesGetTop(props: IMovieProps) {
         }).then(resp => resp.json()).then(data => (
             setMovies(data.results as unknown as Movie[])
         ));
-
-        return () => {
-            console.log("ribbit top");
-        }
-
     }, []);
 
     return (
