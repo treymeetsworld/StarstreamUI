@@ -14,9 +14,5 @@ export function addMovieWatchList(userid:number, video:number, genre:number[]) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(addWatchlist)
-    }).then(resp=>resp.json().then(data=>{
-        console.log(addWatchlist);
-        console.log(data);
-    }));
-
+    });
 }

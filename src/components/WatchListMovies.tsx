@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Movie } from "../models/Movie";
 
 interface IMoviePropsMovies {
@@ -35,12 +36,14 @@ function WatchListMovies(props: IMoviePropsMovies) {
             <div className="content_container">
                 {movieList.map(movie => {
                     return(
-                        <div className='movie'>
+                        <Link to={`/movies/${movie.id}`} key={movie.id}>
+                        <div className='movie' >
                             <div className='title_box'>
                             <p>{movie.title}</p>
                             </div>
                             <img src={"https://image.tmdb.org/t/p/w200" + movie.poster_path} alt={movie.title} />
                         </div>
+                        </Link>
                     )
                 })}
             </div>

@@ -37,7 +37,7 @@ function App(): JSX.Element {
         <Route path='/shows' element={<Shows currentUser={authUser} />} />
         <Route path='/shows/:id' element={<TvDetails currentUser={authUser} />} />
         <Route path='/faqs' element={<Faqs currentUser={authUser} />} />
-        <Route path='/watchlist' element={<WatchList id={2} currentUser={authUser} />} />
+        <Route path='/watchlist' element={<WatchList id={authUser?.authId} currentUser={authUser} />} />
       </Routes>
     </>
   );

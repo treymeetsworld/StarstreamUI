@@ -19,13 +19,13 @@ function WatchList(props: IMovieProps) {
         fetch(`http://localhost:8080/watchlist/movies/${props.id}`).then(resp => {
             return resp.json();
         }).then(watchlist => {
+            
             const list = watchlist as WatchListResponse[];
             const videoIds = list.map(item => item.video);
             setMovieIds([...videoIds]);
         })
 
     }, [props.id]);
-
     
     return (
         !props.currentUser ? <Navigate to="/login"/> :

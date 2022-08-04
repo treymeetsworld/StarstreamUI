@@ -39,16 +39,17 @@ export default function MovieDetails(props: IDetailsProps) {
   return (
     !props.currentUser ? <Navigate to="/login"/> :
     <>
-    <Link to={'/'}>Homepage</Link>
       <h2>MovieDetails</h2>
       <div className="details_container">
         <h3>{movieData?.title}</h3>
           <div className="details_box">
             <img src={`https://image.tmdb.org/t/p/w400${movieData?.poster_path
-                  }`}alt="image" />
+                  }`}alt={movieData?.name} />
           <iframe  width="850" height="647"
             src={`https://www.youtube.com/embed/${keyData}?autoplay=1`}
-            id='player'>
+            id='player'
+            title={movieData?.title}
+            >
           </iframe>
         </div>
           <h4>{movieData?.overview}</h4>

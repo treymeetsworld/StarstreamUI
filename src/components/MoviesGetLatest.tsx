@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { addMovieWatchList } from "../functions/watchlist";
 import { LoggedInUserType } from "../models/logged-in-user";
 import { Movie } from "../models/Movie";
@@ -28,11 +29,14 @@ function MoviesGetLatest(props: IMovieProps) {
             <div className="content_container">
                 {Movies.map((Movie, idx) => {
                     return (
-                        <div key={idx} className='movie' onClick={()=>addMovieWatchList(userId,Movie.id,Movie.genre_ids)}>
+                        <div key={idx} className='movie'>
+                            <Link to={`/movies/${Movie.id}`}>
                             <div className='title_box'>
                             <p>{Movie.title}</p>
                             </div>
                             <img src={"https://image.tmdb.org/t/p/w200" + Movie.poster_path} alt={Movie.title} />
+                        </Link>
+                            <button onClick={() => addMovieWatchList(userId, Movie.id, Movie.genre_ids)}>+</button>
                         </div>
                     );
                 })}

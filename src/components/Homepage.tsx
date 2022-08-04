@@ -44,8 +44,6 @@ export default function Homepage(props: IHomepageProps) {
       })
   }, [])
 
-  
-  console.log(props);
   return (
     !props.currentUser ? <Navigate to="/login"/> :
     <>

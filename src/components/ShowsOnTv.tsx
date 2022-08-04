@@ -1,5 +1,6 @@
 import React from 'react'
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 import TvData from "../models/TvData";
 
 function ShowsOnTv(props: {}) {
@@ -20,12 +21,14 @@ function ShowsOnTv(props: {}) {
                 {shows.map((show, idx) => {
                     return(<>
                         {show.poster_path && (
+                            <Link to={`/shows/${show.id}`}>
                             <div key={idx} className='movie'>
-                            <img src={"https://image.tmdb.org/t/p/w200" + show.poster_path} alt="image" />
+                            <img src={"https://image.tmdb.org/t/p/w200" + show.poster_path} alt={show.name}/>
                             <div className='title_box'>
                                 <p>{show.name}</p>
                             </div>
                             </div>
+                            </Link>
                           )}
                     </>)
                 })}
