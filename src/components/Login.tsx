@@ -1,9 +1,9 @@
 import { useState, SyntheticEvent } from "react";
-import { Link, Navigate } from "react-router-dom";
+import {  Navigate } from "react-router-dom";
 import { LoggedInUserType } from "../models/logged-in-user";
 
 interface ILoginProps {
-    currentUser: LoggedInUserType | undefined, 
+    currentUser: LoggedInUserType | undefined,
     setCurrentUser: (nextUser: LoggedInUserType) => void
 }
 
@@ -22,23 +22,23 @@ function Login(props: ILoginProps) {
         setPassword((e.target as HTMLInputElement).value);
     }
 
-    let handleSubmit = async(e: SyntheticEvent) => {
+    let handleSubmit = async (e: SyntheticEvent) => {
         e.preventDefault()
         if (!email || !password) {
             setErrorMsg('You must provide a username and a password!');
         } else {
-            setErrorMsg('welcome ' + email );
+            setErrorMsg('welcome ' + email);
         }
 
         try {
             let resp = await fetch('http://localhost:8080/auth'
-            , {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({email, password})
-            })
+                , {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                })
 
             if (resp.status !== 200) {
                 setErrorMsg('Could not validate provided credentials!');
@@ -47,50 +47,37 @@ function Login(props: ILoginProps) {
             }
         } catch (err) {
             setErrorMsg('There was an error communicating with the API');
-        }  
+        }
     }
 
 
 
     return (
-        props.currentUser ? <Navigate to="/"/> :
-        <div className="login">
-            <div className="login_background">        
-        <div className="login_gradient" />
-        
-        </div>
-        <div className="login_body">
-        <h1> Stream movies and tv on demand
-        </h1>
-       
-        <h2>Free Sign-Up.</h2>
-        
-        <h3>Ready to stream? Enter your email to start your account</h3>
-
-        <div className="login_input"></div>
-        <form
-        onSubmit={handleSubmit}> 
-            <input type='text'
-            placeholder='Email Address'
-            name="email"
-            onChange={updateEmail}
-            />
-             <input type='password'
-            placeholder='Password'
-            name="password"
-            onChange={updatePassword}
-            />
-            <button 
-            className='login_getStarted'>Login</button>
-        </form>
-       
-        { errorMsg ? 
-                <div>{errorMsg}</div>
-                :
-                <div></div>    
-            }
-        </div>
-        </div>
+        props.currentUser ? <Navigate to="/" /> :
+            <div className="login">
+                <div className="login_gradient">
+                    <form
+                        onSubmit={handleSubmit}>
+                        <input type='text'
+                            placeholder='Email Address'
+                            name="email"
+                            onChange={updateEmail}
+                        />
+                        <input type='password'
+                            placeholder='Password'
+                            name="password"
+                            onChange={updatePassword}
+                        />
+                        <button
+                            className='login_getStarted'>Login</button>
+                    </form>
+                    {errorMsg ?
+                        <div>{errorMsg}</div>
+                        :
+                        <div></div>
+                    }
+                </div>
+            </div>
     )
 }
 

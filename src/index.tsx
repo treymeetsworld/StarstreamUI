@@ -1,8 +1,7 @@
-import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
-import { BrowserRouter, BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router} from "react-router-dom";
 import { GlobalProvider } from "./components/GlobalState";
 
 const root = ReactDOM.createRoot(
@@ -12,9 +11,9 @@ const root = ReactDOM.createRoot(
 root.render(
   // <React.StrictMode>
     <GlobalProvider>
-      <BrowserRouter>
+      <Router>
         <App />
-        </BrowserRouter>
+        </Router>
     </GlobalProvider>
   // </React.StrictMode>
 );

@@ -1,10 +1,7 @@
-import { shouldForwardProp } from '@mui/styled-engine';
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-
 import { Link, Navigate } from 'react-router-dom'
 import { LoggedInUserType } from '../models/logged-in-user';
-import ProfileScreen from './ProfileScreen';
 
 
 interface IHomepageProps {
@@ -51,36 +48,34 @@ export default function Homepage(props: IHomepageProps) {
     !props.currentUser ? <Navigate to="/login"/> :
     <>
       <h1 className='home_title'>STARSTREAM</h1>
-      
-
       <h3>Featured</h3>
       <div className="content_container">
-        {featured?.map((feat: ContentType) => (
+        {featured?.map((feat: ContentType,idx) => (
           <>
             {feat.poster_path && (
               <>
                 {feat.title ?
-                  <Link to={`/movies/${feat.id}`}>
-                    <div key={feat.id} className='movie'>
+                  <Link to={`/movies/${feat.id}`} >
+                    <div key={idx} className='movie' >
                       <div className='title_box'>
                         <p>
                           {feat.title}
                         </p>
                       </div>
                       <img src={`https://image.tmdb.org/t/p/w300${feat.poster_path
-                        }`} alt="image" />
+                        }`} alt={feat.title} />
                     </div>
                   </Link>
                   :
-                  <Link to={`/shows/${feat.id}`}>
-                    <div key={feat.id} className='movie'>
+                  <Link to={`/shows/${feat.id}`} >
+                    <div  className='movie' key={idx}>
                       <div className='title_box'>
                         <p>
                           {feat.name}
                         </p>
                       </div>
                       <img src={`https://image.tmdb.org/t/p/w300${feat.poster_path
-                        }`} alt="image" />
+                        }`} alt={feat.name} />
                     </div>
                   </Link>
                 }
@@ -92,17 +87,17 @@ export default function Homepage(props: IHomepageProps) {
       </div>
       <h3>Movies</h3>
       <div className="content_container">
-        {movieData?.map((movie: ContentType) => (
+        {movieData?.map((movie: ContentType, idx) => (
           <>
-            <Link to={`/movies/${movie.id}`}>
-              <div key={movie.id} className='movie'>
+            <Link to={`/movies/${movie.id}`} >
+              <div  className='movie' key={idx}>
                 <div className='title_box'>
                   <p>
                     {movie.title}
                   </p>
                 </div>
                 <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path
-                  }`} alt="image" />
+                  }`} alt={movie.name} />
               </div>
             </Link>
           </>
@@ -110,18 +105,18 @@ export default function Homepage(props: IHomepageProps) {
       </div>
       <h3>TV Shows</h3>
       <div className="content_container">
-        {tvData?.map((show: ContentType) => (
+        {tvData?.map((show: ContentType,idx) => (
           <>
             {show.poster_path && (
-              <Link to={`/shows/${show.id}`}>
-                <div key={show.id} className='movie'>
+              <Link to={`/shows/${show.id}`} >
+                <div  className='movie' key={idx}>
                   <div className='title_box'>
                     <p>
                       {show.name}
                     </p>
                   </div>
                   <img src={`https://image.tmdb.org/t/p/w200${show.poster_path
-                    }`} alt="image" />
+                    }`} alt={show.name} />
                 </div>
               </Link>
             )}
