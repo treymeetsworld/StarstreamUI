@@ -1,7 +1,7 @@
 import MoviesGetLatest from "./MoviesGetLatest";
 import MoviesGetPopular from "./MoviesGetPopular";
 import MoviesGetTop from "./MoviesGetTop";
-import { Link, Navigate } from 'react-router-dom'
+import { Navigate } from 'react-router-dom'
 import { LoggedInUserType } from "../models/logged-in-user";
 
 interface IMovieProps {
@@ -15,9 +15,9 @@ function GetMovie(props: IMovieProps) {
         <>
             
             <h2>Movies</h2>
-            <MoviesGetPopular />
-            <MoviesGetTop />
-            <MoviesGetLatest />
+            <MoviesGetPopular currentUser={props.currentUser} />
+            <MoviesGetTop currentUser={props.currentUser} />
+            <MoviesGetLatest currentUser={props.currentUser} />
         </>);
 }
 

@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { addMovieWatchList } from "../functions/watchlist";
+import { LoggedInUserType } from "../models/logged-in-user";
 import { Movie } from "../models/Movie";
 
 interface IMovieProps {
-
+    currentUser: LoggedInUserType | undefined
 }
 
 function MoviesGetTop(props: IMovieProps) {
@@ -30,7 +31,7 @@ function MoviesGetTop(props: IMovieProps) {
                             <div className='title_box'>
                             <p>{Movie.title}</p>
                             </div>
-                            <img src={"https://image.tmdb.org/t/p/w200" + Movie.poster_path} alt="image" />
+                            <img src={"https://image.tmdb.org/t/p/w200" + Movie.poster_path} alt={Movie.title} />
                         </div>
                     );
                 })}

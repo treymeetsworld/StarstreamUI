@@ -1,13 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom'
 import { LoggedInUserType } from '../models/logged-in-user';
-import { Movie } from '../models/Movie';
 import { WatchListResponse } from '../models/WatchListResponse';
 import WatchListMovies from './WatchListMovies';
 import { Navigate } from 'react-router-dom'
 
 interface IMovieProps {
-    id: number;
+    id: number | undefined;
     currentUser: LoggedInUserType | undefined
 }
 
@@ -18,7 +16,7 @@ function WatchList(props: IMovieProps) {
 
     useEffect(()=>{
 
-        fetch(`http://Starsteamapi-env-2.eba-sjpuj72h.us-east-1.elasticbeanstalk.com/MovieApp/watchlist/movies/${props.id}`).then(resp => {
+        fetch(`http://localhost:8080/watchlist/movies/${props.id}`).then(resp => {
             return resp.json();
         }).then(watchlist => {
             const list = watchlist as WatchListResponse[];
@@ -28,11 +26,10 @@ function WatchList(props: IMovieProps) {
 
     }, [props.id]);
 
+    
     return (
         !props.currentUser ? <Navigate to="/login"/> :
         <>
-            {/* <Link to={'/'}>Homepage</Link>
-            <Link to={'/register'}>Register</Link> */}
             <h2>Watch List</h2>
             <WatchListMovies movieIds={movieIds} />
         </>);

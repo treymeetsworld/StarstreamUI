@@ -1,5 +1,5 @@
 import "./App.css";
-import Display_FAQs from "./components/Display_FAQs";
+import Faqs from "./components/Faqs";
 import { useState }from 'react';
 import Homepage from "./components/Homepage";
 import Nav from './components/Nav';
@@ -36,8 +36,8 @@ function App(): JSX.Element {
         <Route path='/movies/:id' element={<MovieDetails currentUser={authUser}/>} />
         <Route path='/shows' element={<Shows currentUser={authUser} />} />
         <Route path='/shows/:id' element={<TvDetails currentUser={authUser} />} />
-        <Route path='/faqs' element={<Display_FAQs currentUser={authUser} />} />
-        <Route path='/watchlist' element={<WatchList id={1} currentUser={authUser} />} />
+        <Route path='/faqs' element={<Faqs currentUser={authUser} />} />
+        <Route path='/watchlist' element={<WatchList id={2} currentUser={authUser} />} />
       </Routes>
     </>
   );

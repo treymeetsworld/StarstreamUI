@@ -1,15 +1,16 @@
 import { useEffect, useState } from "react";
 import { addMovieWatchList } from "../functions/watchlist";
+import { LoggedInUserType } from "../models/logged-in-user";
 import { Movie } from "../models/Movie";
 
 interface IMovieProps {
-
+    currentUser: LoggedInUserType | undefined
 }
 
 function MoviesGetLatest(props: IMovieProps) {
 
     // replace with logged in users id
-    let userId:number = 1;
+    let userId = 1;
     const [Movies, setMovies] = useState([] as Movie[]);
 
     useEffect(()=>{
@@ -18,10 +19,9 @@ function MoviesGetLatest(props: IMovieProps) {
         }).then(resp => resp.json()).then(data => (
             setMovies(data.results as unknown as Movie[])
         ));
-
-    }, []);
+        
+    }, [userId]);
     
-
     return (
         <>
             <h3>Latest</h3>
@@ -32,7 +32,7 @@ function MoviesGetLatest(props: IMovieProps) {
                             <div className='title_box'>
                             <p>{Movie.title}</p>
                             </div>
-                            <img src={"https://image.tmdb.org/t/p/w200" + Movie.poster_path} alt="image" />
+                            <img src={"https://image.tmdb.org/t/p/w200" + Movie.poster_path} alt={Movie.title} />
                         </div>
                     );
                 })}

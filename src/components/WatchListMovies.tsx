@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import { WatchListResponse } from "../models/WatchListResponse";
 import { Movie } from "../models/Movie";
 
 interface IMoviePropsMovies {
@@ -28,7 +27,7 @@ function WatchListMovies(props: IMoviePropsMovies) {
             }
         });
 
-    }, [props.movieIds.length]);
+    }, [movieList.length, props.movieIds, props.movieIds.length]);
 
     return (
         <>
@@ -40,7 +39,7 @@ function WatchListMovies(props: IMoviePropsMovies) {
                             <div className='title_box'>
                             <p>{movie.title}</p>
                             </div>
-                            <img src={"https://image.tmdb.org/t/p/w200" + movie.poster_path} alt="image" />
+                            <img src={"https://image.tmdb.org/t/p/w200" + movie.poster_path} alt={movie.title} />
                         </div>
                     )
                 })}
