@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Movie } from "../models/Movie";
+import { Movie } from "../../models/Movie";
 
 interface IMoviePropsMovies {
     movieIds: number[];

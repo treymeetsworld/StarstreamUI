@@ -2,7 +2,7 @@ import MoviesGetLatest from "./MoviesGetLatest";
 import MoviesGetPopular from "./MoviesGetPopular";
 import MoviesGetTop from "./MoviesGetTop";
 import { Navigate } from 'react-router-dom'
-import { LoggedInUserType } from "../models/logged-in-user";
+import { LoggedInUserType } from "../../models/logged-in-user";
 
 interface IMovieProps {
     currentUser: LoggedInUserType | undefined

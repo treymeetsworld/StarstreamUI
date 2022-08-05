@@ -86,3 +86,76 @@ h1 {
   display: flex;
   justify-content: space-between;
 }
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  height: 60px;
+  background-color: #0679b7;
+}
+
+ul#app-nav {
+  display: flex;
+  justify-content: flex-start;
+  flex-grow: 2;
+  gap: 75px;
+  list-style: none;
+  align-items: flex-end;
+}
+
+a {
+  text-decoration: none;
+  list-style: none;
+}
+li a {
+  color: rgb(243, 247, 242);
+  font-size: 20px;
+}
+
+ul#app-util {
+  margin-right: 2rem;
+}
+
+li#title {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 25px;
+  font-weight: 500;
+}
+
+ul#app-util > * {
+  opacity: 0;
+  pointer-events: none;
+  list-style: none;
+}
+
+li#menu {
+  opacity: 1;
+  pointer-events: all
+}
+
+ul#app-util:hover > * {
+  opacity: 1;
+  pointer-events: all;
+  background-color: #0679b7;
+  transition: all 0.3s ease-in-out;
+  height: 30px;
+  padding: 7px;
+}
+
+input#search {
+  height: 25px;
+  border: none;
+  border-radius: 20px 0 0 20px;
+  padding: 0;
+}
+
+#search-btn {
+  height: 25px;
+  width: 70px;
+  border-radius: 0px 20px 20px 0px;
+  border: none;
+  cursor: pointer;
+  margin: 0;
+}

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { addMovieWatchList } from "../functions/watchlist";
-import { LoggedInUserType } from "../models/logged-in-user";
-import { Movie } from "../models/Movie";
+import { addMovieWatchList } from "../../functions/watchlist";
+import { LoggedInUserType } from "../../models/logged-in-user";
+import { Movie } from "../../models/Movie";
 
 interface IMovieProps {
     currentUser: LoggedInUserType | undefined

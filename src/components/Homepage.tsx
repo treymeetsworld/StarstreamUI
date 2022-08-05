@@ -47,7 +47,6 @@ export default function Homepage(props: IHomepageProps) {
   return (
     !props.currentUser ? <Navigate to="/login"/> :
     <>
-      <h1 className='home_title'>STARSTREAM</h1>
       <h3>Featured</h3>
       <div className="content_container">
         {featured?.map((feat: ContentType,idx) => (

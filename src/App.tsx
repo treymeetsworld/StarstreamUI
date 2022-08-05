@@ -3,15 +3,14 @@ import Faqs from "./components/Faqs";
 import { useState }from 'react';
 import Homepage from "./components/Homepage";
 import Nav from './components/Nav';
-import GetMovie from './components/GetMovie';
+import GetMovie from './components/movies/GetMovie';
 import { Route, Routes } from 'react-router-dom'
-import ProfileScreen from './components/ProfileScreen';
 import Register from './components/Register';
 import Login from './components/Login';
-import MovieDetails from './components/MovieDetails';
-import TvDetails from './components/TvDetails';
+import MovieDetails from './components/movies/MovieDetails';
+import TvDetails from './components/shows/TvDetails';
 import Settings from './components/Settings';
-import Shows from './components/Shows';
+import Shows from './components/shows/Shows';
 import WatchList from "./components/WatchList";
 import { LoggedInUserType } from "./models/logged-in-user";
 
@@ -24,12 +23,11 @@ function App(): JSX.Element {
   return (
     <>
 
-<Nav /> 
+<Nav currentUser={authUser}  setCurrentUser={setAuthUser}/> 
       <Routes>
         <Route path='/' element={<Homepage  currentUser={authUser} />} />
         <Route path='/register' element={<Register currentUser={authUser} />} />
         <Route path='/login' element={<Login currentUser={authUser} setCurrentUser={setAuthUser} />} />
-        <Route path='/profile' element={<ProfileScreen currentUser={authUser} />} />
         <Route path='/settings' element={<Settings currentUser={authUser}/>} />
         <Route path='/settings/:id' element={<Settings currentUser={authUser}/>} />
         <Route path='/movies' element={<GetMovie currentUser={authUser} />} />

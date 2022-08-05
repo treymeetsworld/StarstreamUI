@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { LoggedInUserType } from '../models/logged-in-user';
 import { WatchListResponse } from '../models/WatchListResponse';
-import WatchListMovies from './WatchListMovies';
+import WatchListMovies from './movies/WatchListMovies';
 import { Navigate } from 'react-router-dom'
 
 interface IMovieProps {
